@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>tictactoe</class>
+ <widget class="QMainWindow" name="tictactoe">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>627</width>
+    <height>465</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>627</width>
+    <height>465</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>627</width>
+    <height>465</height>
+   </size>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::NoContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>Tic Tac Toe</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="Icons/tictactoe.qrc">
+    <normaloff>:/Icons/game_icon.png</normaloff>:/Icons/game_icon.png</iconset>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>601</width>
+      <height>411</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="2">
+      <widget class="QToolButton" name="button6">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>128</width>
+         <height>128</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QToolButton" name="button7">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>128</width>
+         <height>128</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QToolButton" name="button1">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>128</width>
+         <height>128</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QToolButton" name="button5">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>128</width>
+         <height>128</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QToolButton" name="button9">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>128</width>
+         <height>128</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QToolButton" name="button4">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>128</width>
+         <height>128</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QToolButton" name="button3">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>128</width>
+         <height>128</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QToolButton" name="button2">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>128</width>
+         <height>128</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QToolButton" name="button8">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>128</width>
+         <height>128</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>627</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuNew">
+    <property name="title">
+     <string>&amp;New</string>
+    </property>
+    <addaction name="actionNew_Game"/>
+    <addaction name="separator"/>
+    <addaction name="action_Exit"/>
+   </widget>
+   <addaction name="menuNew"/>
+  </widget>
+  <action name="actionNew_Game">
+   <property name="icon">
+    <iconset resource="Icons/tictactoe.qrc">
+     <normaloff>:/Icons/New.png</normaloff>:/Icons/New.png</iconset>
+   </property>
+   <property name="text">
+    <string>New Game</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="action_Exit">
+   <property name="icon">
+    <iconset resource="Icons/tictactoe.qrc">
+     <normaloff>:/Icons/Exit.png</normaloff>:/Icons/Exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="Icons/tictactoe.qrc"/>
+ </resources>
+ <connections/>
+</ui>

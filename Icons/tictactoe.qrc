@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="Icons">
+    <file>game_icon.png</file>
+    <file>Exit.png</file>
+    <file>New.png</file>
+  </qresource>
+</RCC>
