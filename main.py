@@ -1,5 +1,6 @@
 import os
 import random
+import sys
 
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
@@ -190,7 +191,29 @@ class Game(QMainWindow, Ui_tictactoe):
         self.frame.setEnabled(True)
         self.turn = 1
 
-app = QApplication([])
+app = QApplication(sys.argv)
+
+if len(sys.argv) > 1 and sys.argv[1] == "dark":
+    QApplication.setStyle(QStyleFactory.create("Fusion"))
+    palette = QPalette()
+    palette.setColor(QPalette.Window, QColor(53, 53, 53))
+    palette.setColor(QPalette.WindowText, Qt.white)
+
+    palette.setColor(QPalette.Base, QColor(15, 15, 15))
+    palette.setColor(QPalette.AlternateBase, QColor(53, 53, 53))
+    palette.setColor(QPalette.ToolTipBase, Qt.white)
+    palette.setColor(QPalette.ToolTipText, Qt.white)
+    palette.setColor(QPalette.Text, Qt.white)
+    palette.setColor(QPalette.Button, QColor(53, 53, 53))
+    palette.setColor(QPalette.ButtonText, Qt.white)
+    palette.setColor(QPalette.BrightText, Qt.red)
+    palette.setColor(QPalette.Highlight, QColor(0, 24, 193).lighter())
+    palette.setColor(QPalette.HighlightedText, Qt.black)
+    palette.setColor(QPalette.Disabled, QPalette.Text, Qt.darkGray)
+    palette.setColor(QPalette.Disabled, QPalette.ButtonText, Qt.darkGray)
+
+    app.setPalette(palette)
+
 game = Game()
 game.show()
 app.exec_()
