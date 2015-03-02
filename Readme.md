@@ -4,11 +4,11 @@ it requires Qt5 and python3.4 .
 
 Normal mode
 
-![](ScreenShots/Normal.png)
+![](ScreenShots/Normal-Mode.png)
 
 Dark mode
 
-![](ScreenShots/Dark.png)
+![](ScreenShots/Dark-Mode.png)
 
 
 
