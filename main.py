@@ -55,6 +55,7 @@ class Game(QMainWindow, Ui_tictactoe):
 
         self.allButtons = self.frame.findChildren(QToolButton)
         self.availabeButtons = self.allButtons[:]
+        self.defaultPalette = QApplication.palette()
 
         # across the top
         self.buttonGroup1 = [
@@ -91,7 +92,9 @@ class Game(QMainWindow, Ui_tictactoe):
         # connections
         for button in self.allButtons:
             button.clicked.connect(self.button_clicked)
+
         self.actionNew_Game.triggered.connect(self.new_game)
+        self.actionDark_Theme.toggled.connect(self.dark_theme)
         self.action_Exit.triggered.connect(self.close)
 
         self.setFocus()  # sets the focus to the main window
@@ -207,29 +210,33 @@ class Game(QMainWindow, Ui_tictactoe):
         self.frame.setEnabled(True)
         self.turn = 1
 
+    def dark_theme(self):
+        """Changes the theme between dark and normal"""
+        if self.actionDark_Theme.isChecked():
+            QApplication.setStyle(QStyleFactory.create("Fusion"))
+            palette = QPalette()
+            palette.setColor(QPalette.Window, QColor(53, 53, 53))
+            palette.setColor(QPalette.WindowText, Qt.white)
+            palette.setColor(QPalette.Base, QColor(15, 15, 15))
+            palette.setColor(QPalette.AlternateBase, QColor(53, 53, 53))
+            palette.setColor(QPalette.ToolTipBase, Qt.white)
+            palette.setColor(QPalette.ToolTipText, Qt.white)
+            palette.setColor(QPalette.Text, Qt.white)
+            palette.setColor(QPalette.Button, QColor(53, 53, 53))
+            palette.setColor(QPalette.ButtonText, Qt.white)
+            palette.setColor(QPalette.BrightText, Qt.red)
+            palette.setColor(QPalette.Highlight, QColor(0, 24, 193).lighter())
+            palette.setColor(QPalette.HighlightedText, Qt.black)
+            palette.setColor(QPalette.Disabled, QPalette.Text, Qt.darkGray)
+            palette.setColor(
+                QPalette.Disabled, QPalette.ButtonText, Qt.darkGray)
+            app.setPalette(palette)
+            return
+
+        app.setPalette(self.defaultPalette)
+
+
 app = QApplication(sys.argv)
-
-if len(sys.argv) > 1 and sys.argv[1] == "dark":
-    QApplication.setStyle(QStyleFactory.create("Fusion"))
-    palette = QPalette()
-    palette.setColor(QPalette.Window, QColor(53, 53, 53))
-    palette.setColor(QPalette.WindowText, Qt.white)
-
-    palette.setColor(QPalette.Base, QColor(15, 15, 15))
-    palette.setColor(QPalette.AlternateBase, QColor(53, 53, 53))
-    palette.setColor(QPalette.ToolTipBase, Qt.white)
-    palette.setColor(QPalette.ToolTipText, Qt.white)
-    palette.setColor(QPalette.Text, Qt.white)
-    palette.setColor(QPalette.Button, QColor(53, 53, 53))
-    palette.setColor(QPalette.ButtonText, Qt.white)
-    palette.setColor(QPalette.BrightText, Qt.red)
-    palette.setColor(QPalette.Highlight, QColor(0, 24, 193).lighter())
-    palette.setColor(QPalette.HighlightedText, Qt.black)
-    palette.setColor(QPalette.Disabled, QPalette.Text, Qt.darkGray)
-    palette.setColor(QPalette.Disabled, QPalette.ButtonText, Qt.darkGray)
-
-    app.setPalette(palette)
-
 game = Game()
 game.show()
 app.exec_()

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'tictactoe.ui'
 #
-# Created: Mon Feb 23 01:08:11 2015
+# Created: Tue Mar  3 00:29:27 2015
 #      by: PyQt5 UI code generator 5.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,14 +12,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_tictactoe(object):
     def setupUi(self, tictactoe):
         tictactoe.setObjectName("tictactoe")
-        tictactoe.resize(627, 465)
+        tictactoe.resize(627, 470)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(tictactoe.sizePolicy().hasHeightForWidth())
         tictactoe.setSizePolicy(sizePolicy)
-        tictactoe.setMinimumSize(QtCore.QSize(627, 465))
-        tictactoe.setMaximumSize(QtCore.QSize(627, 465))
+        tictactoe.setMinimumSize(QtCore.QSize(627, 470))
+        tictactoe.setMaximumSize(QtCore.QSize(627, 470))
         tictactoe.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/Icons/game_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -28,9 +28,10 @@ class Ui_tictactoe(object):
         self.centralwidget = QtWidgets.QWidget(tictactoe)
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
-        self.frame.setGeometry(QtCore.QRect(10, 10, 601, 411))
-        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setGeometry(QtCore.QRect(10, 0, 601, 411))
+        self.frame.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.frame.setLineWidth(0)
         self.frame.setObjectName("frame")
         self.gridLayout = QtWidgets.QGridLayout(self.frame)
         self.gridLayout.setObjectName("gridLayout")
@@ -81,27 +82,42 @@ class Ui_tictactoe(object):
         self.gridLayout.addWidget(self.button8, 2, 1, 1, 1)
         tictactoe.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(tictactoe)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 627, 23))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 627, 20))
         self.menubar.setObjectName("menubar")
         self.menuNew = QtWidgets.QMenu(self.menubar)
         self.menuNew.setObjectName("menuNew")
         tictactoe.setMenuBar(self.menubar)
+        self.toolBar = QtWidgets.QToolBar(tictactoe)
+        self.toolBar.setMovable(False)
+        self.toolBar.setFloatable(False)
+        self.toolBar.setObjectName("toolBar")
+        tictactoe.addToolBar(QtCore.Qt.TopToolBarArea, self.toolBar)
         self.actionNew_Game = QtWidgets.QAction(tictactoe)
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(":/Icons/New.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionNew_Game.setIcon(icon1)
         self.actionNew_Game.setObjectName("actionNew_Game")
-        self.actionAbout = QtWidgets.QAction(tictactoe)
-        self.actionAbout.setObjectName("actionAbout")
         self.action_Exit = QtWidgets.QAction(tictactoe)
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap(":/Icons/Exit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.action_Exit.setIcon(icon2)
         self.action_Exit.setObjectName("action_Exit")
+        self.actionDark_Theme = QtWidgets.QAction(tictactoe)
+        self.actionDark_Theme.setCheckable(True)
+        self.actionDark_Theme.setChecked(False)
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap(":/Icons/color.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.actionDark_Theme.setIcon(icon3)
+        self.actionDark_Theme.setObjectName("actionDark_Theme")
         self.menuNew.addAction(self.actionNew_Game)
+        self.menuNew.addSeparator()
+        self.menuNew.addAction(self.actionDark_Theme)
         self.menuNew.addSeparator()
         self.menuNew.addAction(self.action_Exit)
         self.menubar.addAction(self.menuNew.menuAction())
+        self.toolBar.addAction(self.actionNew_Game)
+        self.toolBar.addAction(self.actionDark_Theme)
+        self.toolBar.addAction(self.action_Exit)
 
         self.retranslateUi(tictactoe)
         QtCore.QMetaObject.connectSlotsByName(tictactoe)
@@ -110,8 +126,9 @@ class Ui_tictactoe(object):
         _translate = QtCore.QCoreApplication.translate
         tictactoe.setWindowTitle(_translate("tictactoe", "Tic Tac Toe"))
         self.menuNew.setTitle(_translate("tictactoe", "&New"))
+        self.toolBar.setWindowTitle(_translate("tictactoe", "toolBar"))
         self.actionNew_Game.setText(_translate("tictactoe", "New Game"))
-        self.actionAbout.setText(_translate("tictactoe", "About"))
         self.action_Exit.setText(_translate("tictactoe", "Exit"))
+        self.actionDark_Theme.setText(_translate("tictactoe", "Dark theme"))
 
 import tictactoe_rc
