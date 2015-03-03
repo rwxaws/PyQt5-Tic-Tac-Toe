@@ -23,6 +23,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtMultimedia import QSound
 
+from Dialog import *
 from tictactoe_ui import Ui_tictactoe
 
 
@@ -150,7 +151,7 @@ class Game(QMainWindow, Ui_tictactoe):
 
         if state == 1:
             self.sounds["win"].play()
-            QMessageBox.information(self, ("Tic Tac Toe"), "You Win!")
+            Dialog(self, state).show()
 
             for button in self.availabeButtons:
                 button.setEnabled(False)
@@ -159,7 +160,7 @@ class Game(QMainWindow, Ui_tictactoe):
 
         elif state == 2:
             self.sounds["lose"].play()
-            QMessageBox.information(self, ("Tic Tac Toe"), "You Lose!")
+            Dialog(self, state).show()
 
             for button in self.availabeButtons:
                 button.setEnabled(False)
@@ -167,7 +168,7 @@ class Game(QMainWindow, Ui_tictactoe):
             return True
 
         elif state == 3:
-            QMessageBox.information(self, ("Tic Tac Toe"), "It's a draw!")
+            Dialog(self, state).show()
 
             for button in self.allButtons:
                 button.setEnabled(False)
